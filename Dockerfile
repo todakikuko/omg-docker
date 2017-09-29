@@ -118,7 +118,7 @@ RUN php-build 7.1.8  ~/.phpenv/versions/7.1.8
 RUN ~/.phpenv/bin/phpenv global 7.1.8
 
 COPY nginx.conf.txt /etc/nginx/nginx.conf
-
+COPY mysql.cnf.txt /etc/mysql/conf.d/mysql.cnf
 
 #
 # Else
@@ -130,5 +130,5 @@ RUN mkdir /home/todakikuko/works
 
 # for ssh
 USER root
-EXPOSE 22
+EXPOSE 22 80
 CMD ["/usr/sbin/sshd", "-D"]
